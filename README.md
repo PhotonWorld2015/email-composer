@@ -18,6 +18,14 @@ Email Composer with Attachments allows for sending of emails with attachments. M
 - attachments: a js array containing all full paths to the files you want to attach; can be null/empty
 - attachmentsData: a js array of fileName-fileData array pairs, e.g. [['filename1','base64data1'],['filename2','base64data2']]
 
+**Examples for attachement path:**
+
+Android
+`//storage/emulated/0/cache/TEST_FILE.pdf`
+
+iOS
+`cdvfile://localhost/persistent/cache/TEST_FILE.pdf`
+
 ## Special thanks ##
 
 I would like to say thanks to Guido Sabatini (https://github.com/phonegap/phonegap-plugins/blob/master/iOS/EmailComposerWithAttachments/) for the code we have (re)used and added extra functionalities to.
