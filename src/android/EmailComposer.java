@@ -196,10 +196,13 @@ public class EmailComposer extends CordovaPlugin {
 	
 	@Override
 	public void onActivityResult(int requestCode, int resultCode, Intent intent) {
-		// TODO handle callback
 		super.onActivityResult(requestCode, resultCode, intent);
 		LOG.e("EmailComposer", "ResultCode: " + resultCode);
-		// IT DOESN'T SEEM TO HANDLE RESULT CODES
+
+        //NOTE: There is no way to determine if the email was sent or not
+		//so we always returns 2 to be compatible with iOS version of the plugin
+        String code = "2";
+        webView.executeJavascript("window.plugins.emailComposer._didFinishWithResult(" + code + ");");
 	}
 
 }
