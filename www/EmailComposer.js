@@ -1,5 +1,11 @@
 function EmailComposer() {
-	this.resultCallback = null; // Function
+	this.resultCallback = function(){
+	    console.log("*** EmailComposer -> Default empty callback");
+	};
+
+	this.errorCallback = function(){
+        console.log("*** EmailComposer -> Default error callback");
+    };
 }
 
 EmailComposer.ComposeResultType = {
@@ -14,7 +20,7 @@ EmailComposer.ComposeResultType = {
 
 EmailComposer.prototype.showEmailComposer = function(subject, body,
 		toRecipients, ccRecipients, bccRecipients, bIsHTML, attachments, attachmentsData) {
-	console.log("****************************AVVIATO");
+	console.log("*** EmailComposer -> showEmailComposer()");
 	var args = {};
 	if (toRecipients)
 		args.toRecipients = toRecipients;
@@ -32,8 +38,8 @@ EmailComposer.prototype.showEmailComposer = function(subject, body,
 		args.attachments = attachments;
     if (attachmentsData)
         args.attachmentsData = attachmentsData;
-        
-	cordova.exec(null, null, "EmailComposer", "showEmailComposer", [ args ]);
+
+	cordova.exec(this.resultCallback, this.errorCallback, "EmailComposer", "showEmailComposer", [ args ]);
 }
 
 EmailComposer.prototype.showEmailComposerWithCallback = function(callback,
@@ -49,7 +55,7 @@ EmailComposer.prototype._didFinishWithResult = function(res) {
 }
 
 cordova.addConstructor(function() {
-	console.log("****************************");
+	console.log("*** EmailComposer -> AppGyverVersion");
 	if (!window.plugins) {
 		window.plugins = {};
 	}
