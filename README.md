@@ -26,6 +26,15 @@ Android
 iOS
 `cdvfile://localhost/persistent/cache/TEST_FILE.pdf`
 
+**Callback return parameters**
+- on iOS, a parameter is returned based on the status of the email:
+	* Cancelled: "0"
+    * Saved: "1"   
+    * Sent "2"
+    * Failed "3"
+    * Not Sent: "4"
+- On Android, there is no way to determine if the email was sent or not and thus the return parameter "2" is always returned. 
+
 ## Special thanks ##
 
 I would like to say thanks to Guido Sabatini (https://github.com/phonegap/phonegap-plugins/blob/master/iOS/EmailComposerWithAttachments/) for the code we have (re)used and added extra functionalities to.
