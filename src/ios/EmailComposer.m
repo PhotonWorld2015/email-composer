@@ -160,8 +160,6 @@
     }
     
     if (mailComposer != nil) {
-        UIAlertView* alert = [[UIAlertView alloc]initWithTitle:@"Information" message:@"Mail" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        [alert show];
         [self.viewController presentViewController:mailComposer animated:YES completion:nil];
     } else {
         [self returnWithCode:RETURN_CODE_EMAIL_NOTSENT];
